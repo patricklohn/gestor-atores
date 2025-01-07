@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 4000; 
 const conn = require('./db/conn')
+const Actor = require('./models/Actor')
 
 //configurando handlebars
 app.engine('handlebars', exphbs.engine())
@@ -23,11 +24,9 @@ app.use(express.json())
 app.use(express.static('public'))
 
 
-.then(()=>{
-    app.listen(port,() =>{
-    console.log(`Programa rodando na porta ${port}. Acesse o link do serviço http://localhost:${port}/`)
-})
-}).catch((error)=> console.log(error))
-
-
-
+//conn.sync({force: true})  CUIDADO --> Reseta a estrutura e apaga o banco. "Fazer backup antes".
+conn.sync().then(
+            app.listen(port,() =>{
+            console.log(`Programa rodando na porta ${port}. Acesse o link do serviço http://localhost:${port}/`)
+        })
+    ).catch((error)=> console.log(error))
