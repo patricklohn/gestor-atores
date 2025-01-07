@@ -6,7 +6,10 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 4000; 
 const conn = require('./db/conn')
+//models
 const Actor = require('./models/Actor')
+//rotas
+const actorsRoutes = require('./routes/actorsRoutes')
 
 //configurando handlebars
 app.engine('handlebars', exphbs.engine())
@@ -23,7 +26,12 @@ app.use(express.json())
 // configurando pasta publica para o app
 app.use(express.static('public'))
 
+app.use('/actors', actorsRoutes)
 
+
+app.use(function(req, res){
+    res.status(404).render('./error/404')
+})
 //conn.sync({force: true})  CUIDADO --> Reseta a estrutura e apaga o banco. "Fazer backup antes".
 conn.sync().then(
             app.listen(port,() =>{
