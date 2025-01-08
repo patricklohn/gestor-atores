@@ -16,12 +16,12 @@ const Actor = db.define('Actor',{
     client:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        required: true
+        defaultValue: 0, 
     },
     supplier:{
         type: DataTypes.BOOLEAN,
         allowNull: false,
-        required: true
+        defaultValue: 0, 
     },
     contact:{
         type: DataTypes.STRING,

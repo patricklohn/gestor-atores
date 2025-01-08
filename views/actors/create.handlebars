@@ -1,1 +1,39 @@
-<h1>Criação de pessoas</h1>
+<div class="cadastro-actor">
+    <h1>Cadastro de Atores no sistema</h1>
+    <form action="#" method="POST">
+        <div class="container">
+        <div class="container-input">
+            <label for="name">Escreva o nome do Ator:</label>
+            <input type="text" name="name" required placeholder="Ex: Patrick">
+        </div>
+        <div class="container-input">
+            <span style="text-align: center;">Marque as opções que se encaixam com o Ator:</span>
+            <div>
+            <div>
+                <label for="client">Cliente:</label>
+                <input type="checkbox" name="client">
+            </div>
+            <div>
+            <label for="supplier">Fornecedor:</label>
+            <input type="checkbox" name="supplier">
+            </div>
+            </div>
+        </div>
+        <div class="container-input">
+            <label for="contact">O nome do contato</label>
+            <input type="text" name="contact" placeholder="Ex: Patrick">
+        </div>
+         <div class="container-input">
+            <label for="contact_numbert">Coloque o numero de telefone do contato:</label>
+            <input type="text" name="contact_number" required placeholder="Ex: 48 XXXXX XXXX">
+        </div>
+         <div class="container-input">
+            <label for="emai">Digite o email para contato:</label>
+            <input type="email" name="emai" required placeholder="Ex: exemplo@exemplo.com">
+        </div>
+        <div class="container-input">
+        <input type="submit" value="Cadastrar">
+        </div>
+        </div>
+    </form>
+</div>

@@ -4,14 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GestorRMA</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/geral.css">
+    <link rel="stylesheet" href="/css/error.css">
+    <link rel="stylesheet" href="/css/forms.css">
+    <script src="/script/menu.js" defer></script>
 </head>
 <body>
-    <nav id="navbar">
-        <ul>
-            <li><a href="/">Ver Actors</a></li>
-        </ul>
-    </nav>
-    {{{body}}}
+    <div class="menu-geral">
+        <nav class="dpd-menu">
+            <ul>
+                <li><a href="#">Home</a>
+                    <ul>
+                        <li><a href="#">Pagina Inicial</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Cadastros</a>
+                    <ul>
+                        <li><a href="/actors/createActors">Atores</a></li>
+                        <li><a href="#">Produtos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Consulta</a>
+                    <ul>
+                        <li><a href="#">Consulta Clientes</a></li>
+                        <li><a href="#">Consulta Fornecedores</a></li>
+                        <li><a href="#">Consulta Produtos</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">RMA</a>
+                    <ul>
+                        <li><a href="#">Adiconar garantia</a></li>
+                        <li><a href="#">Produtos em garantia</a></li>
+                        <li><a href="#">Processos de garantia</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{{{body}}}
 </body>
 </html>
