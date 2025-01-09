@@ -1,0 +1,50 @@
+<div class="cadastro-actor">
+    <h1>Edição do Ator codigo: {{actor.code}}</h1>
+    <form action="/actors/updateActor" method="POST">
+        <input type="hidden" name="uuid" value="{{actor.uuid}}">
+        <div class="container">
+        <div class="container-input">
+            <label for="name">Escreva o nome do Ator:</label>
+            <input type="text" name="name" required placeholder="Ex: Patrick" value="{{actor.name}}" autocomplete="off">
+        </div>
+        <div class="container-input">
+            <span style="text-align: center;">Marque as opções que se encaixam com o Ator:</span>
+            <div>
+                <div>
+                    {{#if actor.client}}
+                        <label for="client">Cliente:</label>
+                        <input type="checkbox" name="client" checked>
+                    {{else}}
+                        <label for="client">Cliente:</label>
+                        <input type="checkbox" name="client">
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if actor.supplier}}
+                        <label for="supplier">Fornecedor:</label>
+                        <input type="checkbox" name="supplier" checked>
+                    {{else}}
+                        <label for="supplier">Fornecedor:</label>
+                        <input type="checkbox" name="supplier">
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="container-input">
+            <label for="contact">O nome do contato</label>
+            <input type="text" name="contact" placeholder="Ex: Patrick" value="{{actor.contact}}" autocomplete="off">
+        </div>
+         <div class="container-input">
+            <label for="contact_numbert">Coloque o numero de telefone do contato:</label>
+            <input type="text" name="contact_number" required placeholder="Ex: 48 XXXXX XXXX" value="{{actor.contact_number}}" autocomplete="off">
+        </div>
+         <div class="container-input">
+            <label for="email">Digite o email para contato:</label>
+            <input type="email" name="email" required placeholder="Ex: exemplo@exemplo.com" value="{{actor.email}}" autocomplete="off">
+        </div>
+        <div class="container-input">
+        <input type="submit" value="Editar">
+        </div>
+        </div>
+    </form>
+</div>

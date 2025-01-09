@@ -17,6 +17,15 @@ module.exports = class ActorController{
         res.render('actors/showActor', {actor})
     }
 
+    static async editActor(req,res){
+
+        const uuid = req.params.uuid; 
+        const actor = await Actor.findOne({where:{uuid: uuid}, raw: true})
+
+        //res.render('actors/editActor', {actor})
+        res.render('actors/editActor', {actor})
+    }
+
     // Funciton POST 
 
     static async addActor(req,res){
@@ -59,4 +68,36 @@ module.exports = class ActorController{
         res.redirect('/actors/showActor')
     }
     
+    static async updateActor(req,res){
+        const uuid = req.body.uuid
+
+        let client = req.body.client;
+        let supplier = req.body.supplier;
+
+        if(client === "on"){
+            client = true
+        }else{
+            client = false
+        }
+
+        if(supplier === "on"){
+            supplier = true
+        }else{
+            supplier = false
+        }
+
+        const actor ={
+            name: req.body.name,
+            contact: req.body.contact,
+            contact_number: req.body.contact_number,
+            email: req.body.email,
+            client,
+            supplier,
+        }
+
+        await Actor.update(actor, {where: {uuid: uuid}})
+
+        res.redirect('/actors/showActor')
+    }
+
 } 
