@@ -17,6 +17,8 @@ module.exports = class ActorController{
         res.render('actors/showActor', {actor})
     }
 
+    // Funciton POST 
+
     static async addActor(req,res){
 
         let client = req.body.client;
@@ -48,6 +50,13 @@ module.exports = class ActorController{
 
         res.redirect('/')
 
+    }
+
+    static async removeActor(req,res){
+        const uuid = req.body.uuid
+        await Actor.destroy({where:{uuid: uuid}})
+
+        res.redirect('/actors/showActor')
     }
     
 } 
