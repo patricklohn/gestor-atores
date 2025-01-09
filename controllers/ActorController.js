@@ -3,11 +3,18 @@ const Actor = require('../models/Actor');
 module.exports = class ActorController{
   
     static createActor(req,res){
-        res.render('actors/create')
+        res.render('actors/addActor') 
     }
 
-    static showClient(req,res){
-        res.render('actors/showClient')
+    static async showActor(req,res){
+        
+        //ASC -> Ascendente 
+        //DESC -> Descendente 
+
+        const actor = await Actor.findAll({order:[['code', 'ASC']], raw: true})
+
+
+        res.render('actors/showActor', {actor})
     }
 
     static async addActor(req,res){

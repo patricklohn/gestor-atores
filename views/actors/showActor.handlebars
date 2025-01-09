@@ -1,0 +1,25 @@
+<div class="container-Actors">
+    <h1>Lista de Atores no sistema:</h1>
+    <div>
+    <table>
+        <tr>
+            <th>Codigo</th>
+            <th>Nome</th>
+            <th>Nome do contato</th>
+            <th>Numero do contato</th>
+            <th>Email</th>
+            <th>Editar</th>
+        </tr>
+        {{#each actor}}
+        <tr>
+            <td>{{this.code}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.contact}}</td>
+            <td>{{this.contact_number}}</td>
+            <td>{{this.email}}</td>
+            <td><a href="/editActor/{{this.uuid}}"><i class="bi bi-pencil"></i></a></td>
+        </tr>
+        {{/each}}
+    </table>
+    </div>
+</div>
