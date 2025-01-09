@@ -48,7 +48,7 @@ module.exports = class ActorController{
 
         await Actor.create(actor)
 
-        res.redirect('/')
+        res.redirect('/actors/showActor')
 
     }
 

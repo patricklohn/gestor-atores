@@ -32,7 +32,8 @@ app.use('/actors', actorsRoutes)
 app.use(function(req, res){
     res.status(404).render('./error/404')
 })
-//conn.sync({force: true})  CUIDADO --> Reseta a estrutura e apaga o banco. "Fazer backup antes".
+//CUIDADO --> Reseta a estrutura e apaga o banco. "Fazer backup antes".
+//conn.sync({force: true}).then(
 conn.sync().then(
             app.listen(port,() =>{
             console.log(`Programa rodando na porta ${port}. Acesse o link do serviço http://localhost:${port}/`)

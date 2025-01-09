@@ -39,7 +39,7 @@ const Actor = db.define('Actor',{
         type: DataTypes.STRING,
         allowNull: false,
         required: true,
-        unique: true, 
+        // unique: true, 
     },
     status:{
         type: DataTypes.STRING,
