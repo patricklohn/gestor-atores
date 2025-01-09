@@ -1,7 +1,7 @@
 const Actor = require('../models/Actor');
 
 module.exports = class ActorController{
-  
+
     static createActor(req,res){
         res.render('actors/addActor') 
     }
@@ -13,6 +13,19 @@ module.exports = class ActorController{
 
         const actor = await Actor.findAll({order:[['code', 'ASC']], raw: true})
 
+        res.render('actors/showActor', {actor})
+    }
+
+    static async showClient(req,res){
+
+        const actor = await Actor.findAll({where: {client: true}, order:[['code', 'ASC']], raw: true})
+
+        res.render('actors/showActor', {actor})
+    }
+
+    static async showSupplier(req,res){
+
+        const actor = await Actor.findAll({where: {supplier: true}, order:[['code', 'ASC']], raw: true})
 
         res.render('actors/showActor', {actor})
     }
