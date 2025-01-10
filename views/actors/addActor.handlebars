@@ -1,38 +1,53 @@
 <div class="cadastro-actor">
     <h1>Cadastro de Atores no sistema</h1>
     <form action="/actors/add-actor" method="POST">
+        {{#if error}}
+            <div class="error-message">
+                {{error}}
+            </div>
+        {{/if}}
         <div class="container">
         <div class="container-input">
             <label for="name">Escreva o nome do Ator:</label>
-            <input type="text" name="name" required placeholder="Ex: Patrick" autocomplete="off">
+            <input type="text" name="name" required placeholder="Ex: Patrick" value="{{name}}" autocomplete="off">
         </div>
         <div class="container-input">
             <span style="text-align: center;">Marque as opções que se encaixam com o Ator:</span>
             <div>
-            <div>
-                <label for="client">Cliente:</label>
-                <input type="checkbox" name="client">
-            </div>
-            <div>
-            <label for="supplier">Fornecedor:</label>
-            <input type="checkbox" name="supplier">
-            </div>
+                <div>
+                    {{#if client}}
+                        <label for="client">Cliente:</label>
+                        <input type="checkbox" name="client" checked>
+                    {{else}}
+                        <label for="client">Cliente:</label>
+                        <input type="checkbox" name="client">
+                    {{/if}}
+                </div>
+                <div>
+                    {{#if supplier}}
+                        <label for="supplier">Fornecedor:</label>
+                        <input type="checkbox" name="supplier" checked>
+                    {{else}}
+                        <label for="supplier">Fornecedor:</label>
+                        <input type="checkbox" name="supplier">
+                    {{/if}}
+                </div>
             </div>
         </div>
         <div class="container-input">
             <label for="contact">O nome do contato</label>
-            <input type="text" name="contact" placeholder="Ex: Patrick" autocomplete="off">
+            <input type="text" name="contact" placeholder="Ex: Patrick" value="{{contact}}" autocomplete="off">
         </div>
          <div class="container-input">
             <label for="contact_numbert">Coloque o numero de telefone do contato:</label>
-            <input type="text" name="contact_number" required placeholder="Ex: 48 XXXXX XXXX" autocomplete="off">
+            <input type="text" name="contact_number" required placeholder="Ex: 48 XXXXX XXXX" value="{{contact_number}}" autocomplete="off">
         </div>
          <div class="container-input">
             <label for="email">Digite o email para contato:</label>
-            <input type="email" name="email" required placeholder="Ex: exemplo@exemplo.com" autocomplete="off">
+            <input type="email" name="email" required placeholder="Ex: exemplo@exemplo.com" value="{{email}}" autocomplete="off">
         </div>
         <div class="container-input">
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Adicionar Ator">
         </div>
         </div>
     </form>

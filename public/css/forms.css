@@ -1,5 +1,15 @@
 /*Cadastro Actor*/
 
+.error-message{
+    position: fixed;
+    background-color: red;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    top: 275px;
+    right: 100px;
+}
+
 .cadastro-actor{
     padding:2rem 0; 
 }

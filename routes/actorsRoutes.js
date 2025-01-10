@@ -3,7 +3,7 @@ const router = express.Router()
 
 const ActorController = require('../controllers/ActorController')
 
-router.get('/createActors', ActorController.createActor)
+router.get('/addActor', ActorController.createActor)
 router.get('/showActor', ActorController.showActor)
 router.get('/editActor/:uuid', ActorController.editActor)
 router.get('/showClient', ActorController.showClient)

@@ -1,10 +1,23 @@
 const Actor = require('../models/Actor');
 
+// Functions
+
+existenciaEmailDb = async (valor) => {
+    try {
+        const valido = await Actor.count({ where: { email: valor } });
+        return valido > 0;
+    } catch (err) {
+        console.error(err);
+        return false;
+    }
+}
+
 module.exports = class ActorController{
 
     static createActor(req,res){
-        res.render('actors/addActor') 
+        res.render('actors/addActor');
     }
+
 
     static async showActor(req,res){
         
@@ -45,6 +58,7 @@ module.exports = class ActorController{
 
         let client = req.body.client;
         let supplier = req.body.supplier;
+        const email = req.body.email ;
 
         if(client === 'on'){
             client = true
@@ -58,6 +72,20 @@ module.exports = class ActorController{
             supplier = false
         }
 
+        const existingActor = await existenciaEmailDb(email);
+
+        if(existingActor){
+            return res.render('actors/addActor', 
+                {
+                error: 'Email já cadastrado! Utilize outro!',
+                name: req.body.name,
+                email,
+                contact: req.body.contact,
+                contact_number: req.body.contact_number,
+                client,
+                supplier,
+            });
+        }
 
         const actor = {
             name: req.body.name,
@@ -65,7 +93,7 @@ module.exports = class ActorController{
             supplier,
             contact: req.body.contact,
             contact_number: req.body.contact_number, 
-            email: req.body.email,
+            email
         }
 
         await Actor.create(actor)
